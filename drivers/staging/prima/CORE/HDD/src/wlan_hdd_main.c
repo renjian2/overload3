@@ -12150,6 +12150,7 @@ int hdd_wlan_startup(struct device *dev )
    {
       eHalStatus halStatus;
 
+<<<<<<< HEAD
       /* Overwrite the Mac address if config file exist */
       if (VOS_STATUS_SUCCESS != hdd_update_mac_config(pHddCtx))
       {
@@ -12165,6 +12166,12 @@ int hdd_wlan_startup(struct device *dev )
                  pHddCtx->cfg_ini->intfMacAddr[0].bytes[4],
                  pHddCtx->cfg_ini->intfMacAddr[0].bytes[5]);
       }
+=======
+   // Unregister the Net Device Notifier
+   //unregister_netdevice_notifier(&hdd_netdev_notifier);
+   
+   //hdd_stop_all_adapters( pHddCtx );
+>>>>>>> bda7cf4... Prevent panic reboot on disconnect of wlan1
 
       /* Set the MAC Address Currently this is used by HAL to
        * add self sta. Remove this once self sta is added as
@@ -12671,6 +12678,11 @@ err_bap_stop:
 err_bap_close:
    WLANBAP_Close(pVosContext);
 #endif
+<<<<<<< HEAD
+=======
+   //int ret;
+   struct wiphy *wiphy;
+>>>>>>> bda7cf4... Prevent panic reboot on disconnect of wlan1
 
 err_close_adapter:
    hdd_close_all_adapters( pHddCtx );
@@ -13024,6 +13036,7 @@ done:
    pr_info("%s: driver unloaded\n", WLAN_MODULE_NAME);
 }
 
+<<<<<<< HEAD
 /**---------------------------------------------------------------------------
 
   \brief hdd_module_exit() - Exit function
@@ -13074,6 +13087,25 @@ static int kickstart_driver(void)
       ret_status = hdd_driver_init();
       wlan_hdd_inited = ret_status ? 0 : 1;
       return ret_status;
+=======
+/*
+   // register net device notifier for device change notification
+   ret = register_netdevice_notifier(&hdd_netdev_notifier);
+
+   if(ret < 0)
+   {
+      hddLog(VOS_TRACE_LEVEL_ERROR,"%s: register_netdevice_notifier failed",__func__);
+      goto err_free_power_on_lock;
+   }
+*/
+
+   //Initialize the nlink service
+   if(nl_srv_init() != 0)
+   {
+      hddLog(VOS_TRACE_LEVEL_FATAL,"%s: nl_srv_init failed", __func__);
+      //goto err_reg_netdev;
+      goto err_nl_srv;
+>>>>>>> bda7cf4... Prevent panic reboot on disconnect of wlan1
    }
 
    hdd_driver_exit();
@@ -13165,9 +13197,17 @@ void hdd_set_conparam ( v_UINT_t newParam )
 
   \param  - enable - boolean value
 
+<<<<<<< HEAD
   \return - None
 
   --------------------------------------------------------------------------*/
+=======
+//err_reg_netdev:
+//   unregister_netdevice_notifier(&hdd_netdev_notifier);
+
+//err_free_power_on_lock:
+   free_riva_power_on_lock("wlan");
+>>>>>>> bda7cf4... Prevent panic reboot on disconnect of wlan1
 
 VOS_STATUS hdd_softap_sta_deauth(hdd_adapter_t *pAdapter,
                                  struct tagCsrDelStaParams *pDelStaParams)
