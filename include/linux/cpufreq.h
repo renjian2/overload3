@@ -433,6 +433,7 @@ extern struct cpufreq_governor cpufreq_gov_conservative;
 extern struct cpufreq_governor cpufreq_gov_interactive;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_interactive)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_DARKNESS)
 extern struct cpufreq_governor cpufreq_gov_darkness;
@@ -441,6 +442,11 @@ extern struct cpufreq_governor cpufreq_gov_darkness;
 extern struct cpufreq_governor cpufreq_gov_chill;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_chill)
 >>>>>>> 501cb23... Add Darkness Governor
+=======
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_CHILL)
+extern struct cpufreq_governor cpufreq_gov_chill;
+#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_chill)
+>>>>>>> 4f10cea... cpufreq: Add Chill v2.10 CPU gov with all patches and fixes
 #endif
 
 /*********************************************************************
