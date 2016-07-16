@@ -44,6 +44,12 @@ config IOSCHED_ROW
 	  Most suitable for mobile devices.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+config IOSCHED_MAPLE
+	tristate "Maple I/O scheduler"
+	default y
+>>>>>>> 830c41e... block: Add Maple I/O Scheduler with all the patches
 =======
 config IOSCHED_MAPLE
 	tristate "Maple I/O scheduler"
@@ -155,9 +161,13 @@ config DEFAULT_IOSCHED
 	default "cfq" if DEFAULT_CFQ
 	default "noop" if DEFAULT_NOOP
 <<<<<<< HEAD
+<<<<<<< HEAD
 	default "fiops" if DEFAULT_FIOPS
 	default "sio" if DEFAULT_SIO
 
+=======
+	default "maple" if DEFAULT_MAPLE
+>>>>>>> 830c41e... block: Add Maple I/O Scheduler with all the patches
 =======
 	default "maple" if DEFAULT_MAPLE
 >>>>>>> 830c41e... block: Add Maple I/O Scheduler with all the patches
