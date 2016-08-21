@@ -7,11 +7,17 @@ CONFIG_64BIT=y
 CONFIG_ARCH_PHYS_ADDR_T_64BIT=y
 CONFIG_MMU=y
 CONFIG_NO_IOPORT_MAP=y
-#CONFIG_ARCH_MMAP_RND_BITS_MIN=18
-#CONFIG_ARCH_MMAP_RND_BITS_MAX=24
-#CONFIG_ARCH_MMAP_RND_COMPAT_BITS_MIN=11
-#CONFIG_ARCH_MMAP_RND_COMPAT_BITS_MAX=16
-#CONFIG_ILLEGAL_POINTER_VALUE=0xdead000000000000
+CONFIG_arch/arm64/configs/overload_s2_defconfig:43:warning: override: reassigning to symbol ARCH_MMAP_RND_BITS_MAX
+arch/arm64/configs/overload_s2_defconfig:44:warning: override: reassigning to symbol ARCH_MMAP_RND_COMPAT_BITS_MIN
+arch/arm64/configs/overload_s2_defconfig:45:warning: override: reassigning to symbol ARCH_MMAP_RND_COMPAT_BITS_MAX
+arch/arm64/configs/overload_s2_defconfig:46:warning: override: reassigning to symbol ILLEGAL_POINTER_VALUE
+arch/arm64/configs/overload_s2_defconfig:55:warning: override: reassigning to symbol LOCALVERSION
+arch/arm64/configs/overload_s2_defconfig:56:warning: override: reassigning to symbol LOCALVERSION_AUTO
+ARCH_MMAP_RND_BITS_MIN=18
+CONFIG_ARCH_MMAP_RND_BITS_MAX=24
+CONFIG_ARCH_MMAP_RND_COMPAT_BITS_MIN=11
+CONFIG_ARCH_MMAP_RND_COMPAT_BITS_MAX=16
+CONFIG_ILLEGAL_POINTER_VALUE=0xdead000000000000
 CONFIG_STACKTRACE_SUPPORT=y
 CONFIG_LOCKDEP_SUPPORT=y
 CONFIG_TRACE_IRQFLAGS_SUPPORT=y
@@ -52,6 +58,8 @@ CONFIG_CROSS_COMPILE=""
 CONFIG_LOCALVERSION="-overload-2.1"
 CONFIG_LOCALVERSION_AUTO=y
 CONFIG_DEFAULT_HOSTNAME="(none)"
+CONFIG_LOCALVERSION="-AndroModX"
+# CONFIG_LOCALVERSION_AUTO is not set
 CONFIG_SWAP=y
 CONFIG_SYSVIPC=y
 CONFIG_SYSVIPC_SYSCTL=y
